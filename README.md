@@ -377,7 +377,7 @@ Toda edição de etapas é uma substituição, portanto, se quiser alterar uma e
     "ativo": true,
     "created_at": "2016-11-10 09:25:17",
     "updated_at": "2016-11-10 09:58:40"
-  } 
+  }
 }
 ```
 
@@ -437,7 +437,7 @@ Toda edição de etapas é uma substituição, portanto, se quiser alterar uma e
 **Request body:**
 
 ```javascript
-{ 
+{
   "tipoUsuario": "ADMINSTRADOR",
 }
 ```
@@ -515,5 +515,67 @@ Toda edição de etapas é uma substituição, portanto, se quiser alterar uma e
     "created_at": "2016-11-10 13:00:00",
     "updated_at": "2016-11-10 13:00:00"
   }
+}
+```
+
+## Webhooks
+
+### Aprovação de despesas
+
+Quando um relatório for aprovado nosso sistema irá disparar uma requisição ``POST`` para a URL que você configurar contendo os dados do relatório.
+
+**Exemplo:**
+
+```javascript
+{
+   "id": 2429,
+   "idUsuario": "432",
+   "descricao": "Setembro",
+   "status": "APROVADO",
+   "dataAprovacao": "2016-10-02 15:38:51",
+   "dataPagamento": null,
+   "created_at": "2016-09-07 14:50:26",
+   "updated_at": "2016-10-24 09:40:23",
+   "justificativa": ""
+   "itens": [{
+     "id": 9173,
+     "kilometragem": "200.00",
+     "data": "2016-09-06 00:00:00",
+     "idDespesaTipo": "407",
+     "idCentroCusto": "199",
+     "idPercurso": "106",
+     "valor": 230,
+     "titulo": "Indb",
+     "aprovado": true,
+     "obs": "Anotações",
+     "created_at": "2016-09-07 14:50:36",
+     "updated_at": "2016-10-02 15:38:51",
+     "ativo": true,
+     "valorKm": "1.15",
+     "imagem": null
+    }, {
+     "id": 9174,
+     "kilometragem": "0.00",
+     "data": "2016-09-07 00:00:00",
+     "idDespesaTipo": "409",
+     "idCentroCusto": "199",
+     "idPercurso": null,
+     "valor": 129,
+     "titulo": "Almoço XPTO",
+     "aprovado": true,
+     "obs": "Anotações",
+     "created_at": "2016-09-07 14:55:09",
+     "updated_at": "2016-10-02 15:38:51",
+     "ativo": true,
+     "valorKm": "0.00",
+     "imagem": {
+       "id": 5658,
+       "nome": "5877754078136816.jpg",
+       "tipo": "IMG",
+       "url": "https://app.vexpenses.com/recibos/5877754078136816.jpg",
+       "created_at": "2016-09-07 14:55:09",
+       "updated_at": "2016-09-07 14:55:09",
+     }
+   }]
 }
 ```
